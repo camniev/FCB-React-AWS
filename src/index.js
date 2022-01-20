@@ -7,6 +7,16 @@ import "./index.css";
 //   return <h1>Hello, world!</h1>;
 // }
 
+function TasksList() {
+  return(
+    <ul>
+      <li className="tasks-item">Follow Edukasyon.ph on Facebook</li>
+      <li className="tasks-item">Follow AWS Siklab Pilipinas on Facebook</li>
+      <li className="tasks-item">Follow Zuitt Coding Bootcamp on Facebook</li>
+    </ul>
+  );
+}
+
 function App() {
 
   //inline css but will require an object
@@ -19,13 +29,19 @@ function App() {
       <header className="app-header">
         <h1>My Amazing To-do List App</h1>
 
-        {/* with inline css (jsx style) */}
+        {/* with inline css */}
         <p style={paraStyle}>The most simple and amazing to-do list React app.</p>
-        <ul>
+
+        {/* can be moved as separate function */}
+        {/* transferred to function TasksList() */}
+        {/* <ul>
           <li className="tasks-item">Follow Edukasyon.ph on Facebook</li>
           <li className="tasks-item">Follow AWS Siklab Pilipinas on Facebook</li>
           <li className="tasks-item">Follow Zuitt Coding Bootcamp on Facebook</li>
-        </ul>
+        </ul> */}
+
+        {/* calling function */}
+        <TasksList />
       </header>
     </div>
   );
