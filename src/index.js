@@ -7,12 +7,20 @@ import "./index.css";
 //   return <h1>Hello, world!</h1>;
 // }
 
+//3rd component that simply returns a list item (dynamic data)
+function Task(props) {
+  console.log(props);
+  return (
+    <li className="tasks-item">{props.taskName}</li>
+  );
+}
+
 function TasksList() {
   return(
     <ul>
-      <li className="tasks-item">Follow Edukasyon.ph on Facebook</li>
-      <li className="tasks-item">Follow AWS Siklab Pilipinas on Facebook</li>
-      <li className="tasks-item">Follow Zuitt Coding Bootcamp on Facebook</li>
+      <Task taskName="Follow Edukasyon.ph on Facebook"/>
+      <Task taskName="Follow AWS Siklab Pilipinas on Facebook"/>
+      <Task taskName="Follow Zuitt Coding Bootcamp on Facebook"/>
     </ul>
   );
 }
@@ -40,7 +48,7 @@ function App() {
           <li className="tasks-item">Follow Zuitt Coding Bootcamp on Facebook</li>
         </ul> */}
 
-        {/* calling function */}
+        {/* calling function TasksList */}
         <TasksList />
       </header>
     </div>
