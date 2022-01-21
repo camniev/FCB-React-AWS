@@ -27,9 +27,11 @@ function TasksList() {
 
   return(
     <ul>
-      {/* display object collection using array map */}
-      {taskItemsList.map(task => {
-        console.log(task);
+      {/* display object collection taskItemsList using array map */}
+      {/* callback function (map) that's why it needs "return" */}
+      {/* to solve "Each child in a list should have a unique "key" prop." warning, include index */}
+      {taskItemsList.map((task, index) => {
+        return <Task key={index} taskName={task} />
       })}
     </ul>
   );
