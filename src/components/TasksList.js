@@ -4,22 +4,37 @@ import Task from "./Task";
 function TasksList() {
 
     // data - object collection of tasks
-    const taskItemsList = [
+    // const taskItemsList = [
+    //     "Follow Edukasyon.ph on Facebook",
+    //     "Follow AWS Siklab Pilipinas on Facebook",
+    //     "Follow Zuitt Coding Bootcamp on Facebook"
+    // ];
+
+    //converted to usestate
+    const [taskItemsList, setTaskItemsList] = useState([
         "Follow Edukasyon.ph on Facebook",
         "Follow AWS Siklab Pilipinas on Facebook",
         "Follow Zuitt Coding Bootcamp on Facebook"
-    ];
+    ]);
 
     // usestate is a react feature to store and update temporary information
     // destructuring in const (review) 
+    // inputTaskHandler and useState hook
 
-    const[taskValue, setTaskValue] =  useState("Just another task");
-    console.log("task value: " + taskValue);
+    const[taskValue, setTaskValue] =  useState("");
+    //console.log("task value: " + taskValue);
 
     //create event to update data in setTaskValue
     const inputChangeHandler = (e) => {
         setTaskValue(e.target.value)
     };
+
+    //create another function that will set new data to setTaskItemsList
+    const addTaskHandler = (e) => {
+        //this will create a new set of expression (... enumerate)
+        setTaskItemsList([e.target.value, ...taskItemsList]);
+        setTaskValue("");
+    }
   
     return(
       //adding input
@@ -35,7 +50,9 @@ function TasksList() {
         <input
             className="task-input"
             placeholder="Create a new task"
-            onChange={inputChangeHandler}
+            onChange={(e) => setTaskValue(e.target.value)}
+            onBlur={addTaskHandler}
+            value={taskValue}
         />
 
         <ul>
