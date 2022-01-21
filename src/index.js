@@ -11,16 +11,26 @@ import "./index.css";
 function Task(props) {
   console.log(props);
   return (
+    //props
     <li className="tasks-item">{props.taskName}</li>
   );
 }
 
 function TasksList() {
+
+  // data - object collection of tasks
+  const taskItemsList = [
+    "Follow Edukasyon.ph on Facebook",
+    "Follow AWS Siklab Pilipinas on Facebook",
+    "Follow Zuitt Coding Bootcamp on Facebook"
+  ];
+
   return(
     <ul>
-      <Task taskName="Follow Edukasyon.ph on Facebook"/>
-      <Task taskName="Follow AWS Siklab Pilipinas on Facebook"/>
-      <Task taskName="Follow Zuitt Coding Bootcamp on Facebook"/>
+      {/* display object collection using array map */}
+      {taskItemsList.map(task => {
+        console.log(task);
+      })}
     </ul>
   );
 }
